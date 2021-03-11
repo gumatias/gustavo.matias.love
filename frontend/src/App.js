@@ -10,6 +10,8 @@ import {
 import Navigator from './Navigator';
 import Home from './Home';
 import About from './About';
+import Post from './Post';
+import Contact from './Contact';
 
 function App() {
   return (
@@ -20,8 +22,8 @@ function App() {
         <Switch>
           <Route path="/home"><Home/></Route>
           <Route path="/about"><About/></Route>
-          <Route path="/contact">Contact</Route>
-          <Route path="/post">Post</Route>
+          <Route path="/contact"><Contact/></Route>
+          <Route path="/post"><Post/></Route>
           <Route path="/"><Home/></Route>
         </Switch>
 
