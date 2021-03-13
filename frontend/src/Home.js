@@ -27,8 +27,8 @@ export default function Home() {
                   Problems look mighty small from 150 miles up
                 </h3>
               </a>
-              <p class="post-meta">Posted by
-                <a href="#">Start Bootstrap</a>
+              <p class="post-meta">Posted by{'\n'}
+                <a href="#">Start Bootstrap</a>{'\n'}
                 on September 24, 2019</p>
             </div>
             <hr/>
@@ -38,8 +38,8 @@ export default function Home() {
                   I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
                 </h2>
               </a>
-              <p class="post-meta">Posted by
-                <a href="#">Start Bootstrap</a>
+              <p class="post-meta">Posted by{'\n'}
+                <a href="#">Start Bootstrap</a>{'\n'}
                 on September 18, 2019</p>
             </div>
             <hr/>
@@ -52,8 +52,8 @@ export default function Home() {
                   We predict too much for the next year and yet far too little for the next ten.
                 </h3>
               </a>
-              <p class="post-meta">Posted by
-                <a href="#">Start Bootstrap</a>
+              <p class="post-meta">Posted by{'\n'}
+                <a href="#">Start Bootstrap</a>{'\n'}
                 on August 24, 2019</p>
             </div>
             <hr/>
@@ -66,8 +66,8 @@ export default function Home() {
                   Many say exploration is part of our destiny, but it’s actually our duty to future generations.
                 </h3>
               </a>
-              <p class="post-meta">Posted by
-                <a href="#">Start Bootstrap</a>
+              <p class="post-meta">Posted by{'\n'}
+                <a href="#">Start Bootstrap</a>{'\n'}
                 on July 8, 2019</p>
             </div>
             <hr/>
