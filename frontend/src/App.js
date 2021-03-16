@@ -59,7 +59,7 @@ function App() {
                     </a>
                   </li>
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+                <p class="copyright text-muted">Copyright &copy; Gustavo Matias dos Santos {Intl.DateTimeFormat('en-US', {year: 'numeric'}).format(Date.now())}</p>
               </div>
             </div>
           </div>
