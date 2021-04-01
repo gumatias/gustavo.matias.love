@@ -1,6 +1,9 @@
 # Deploy
 `git push heroku main`
 
+# Development
+`foreman start -f Procfile.dev`
+
 # README
 
 This README would normally document whatever steps are necessary to get the
