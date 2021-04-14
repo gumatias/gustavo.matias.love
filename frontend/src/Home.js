@@ -1,31 +1,26 @@
+import { useState, useEffect } from "react";
+
 export default function Home() {
 
-  let recentPosts = [
-    {
-      title: 'Man must explore, and this is exploration at its greatest',
-      subTitle: 'Problems look mighty small from 150 miles up',
-      source: 'StackOverflow',
-      postDate: Date.now()
-    },
-    {
-      title: 'Man must explore, and this is exploration at its greatest',
-      subTitle: 'Problems look mighty small from 150 miles up',
-      source: 'StackOverflow',
-      postDate: Date.now()
-    },
-    {
-      title: 'Man must explore, and this is exploration at its greatest',
-      subTitle: 'Problems look mighty small from 150 miles up',
-      source: 'StackOverflow',
-      postDate: Date.now()
-    },
-    {
-      title: 'Man must explore, and this is exploration at its greatest',
-      subTitle: 'Problems look mighty small from 150 miles up',
-      source: 'StackOverflow',
-      postDate: Date.now()
-    },
-  ];
+  const [recentPosts, setRecentPosts] = useState([]);
+
+  // TODO: get this working without DDOSing, something to figure out what's happening here
+  // https://reactjs.org/docs/hooks-effect.html
+  useEffect(() => {
+    console.log('in function..');
+    fetch('/api/v1/hacker_news/user_comments').then((response) => {
+      return response.json();
+    }).then((response) => {
+      console.log('in callback');
+      const userSubmissions = response.map((userSubmission) => ({
+        title: 'test',
+        subTitle: userSubmission.text,
+        source: 'Hacker News',
+        postDate: Date.now()
+      }));
+      setRecentPosts(userSubmissions);
+    });
+  });
 
   return (
     <div>
