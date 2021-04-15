@@ -4,14 +4,10 @@ export default function Home() {
 
   const [recentPosts, setRecentPosts] = useState([]);
 
-  // TODO: get this working without DDOSing, something to figure out what's happening here
-  // https://reactjs.org/docs/hooks-effect.html
   useEffect(() => {
-    console.log('in function..');
     fetch('/api/v1/hacker_news/user_comments').then((response) => {
       return response.json();
     }).then((response) => {
-      console.log('in callback');
       const userSubmissions = response.map((userSubmission) => ({
         title: 'test',
         subTitle: userSubmission.text,
@@ -20,7 +16,7 @@ export default function Home() {
       }));
       setRecentPosts(userSubmissions);
     });
-  });
+  }, []);
 
   return (
     <div>
