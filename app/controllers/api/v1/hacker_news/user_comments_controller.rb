@@ -5,7 +5,14 @@ class Api::V1::HackerNews::UserCommentsController < ApplicationController
 
     comments = user_profile["submitted"].map do |submission_id|
       raw_response = Faraday.get("https://hacker-news.firebaseio.com/v0/item/#{submission_id}.json")
-      JSON.parse(raw_response.body)
+      comment = JSON.parse(raw_response.body)
+
+      if comment["parent"].present?
+        raw_response = Faraday.get("https://hacker-news.firebaseio.com/v0/item/#{comment["parent"]}.json")
+        comment["title"] = JSON.parse(raw_response.body)["title"]
+      end
+
+      comment
     end
 
     render json: comments

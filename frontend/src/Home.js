@@ -9,7 +9,7 @@ export default function Home() {
       return response.json();
     }).then((response) => {
       const userSubmissions = response.map((userSubmission) => ({
-        title: 'test',
+        title: userSubmission.title,
         subTitle: userSubmission.text,
         source: 'Hacker News',
         postDate: Date.now()
