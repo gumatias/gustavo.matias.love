@@ -4,18 +4,18 @@ export default function Home() {
 
   const [recentPosts, setRecentPosts] = useState([]);
 
-  useEffect(() => {
-    fetch('/api/v1/hacker_news/user_comments').then((response) => {
-      return response.json();
-    }).then((response) => {
-      const userSubmissions = response.map((userSubmission) => ({
-        title: userSubmission.title,
-        subTitle: userSubmission.text.substring(0, 280) + "...",
-        source: 'Hacker News',
-        postDate: new Date(userSubmission.time * 1000) // convert seconds to ms
-      }));
-      setRecentPosts(userSubmissions);
-    });
+  useEffect(async () => {
+    const response = await fetch('/api/v1/hacker_news/user_comments');
+    const userSubmissions = await response.json();
+    // TODO: When user clicks on post info, it takes user to post page
+    // TODO: What is the plan for listing other platforms?
+    const posts = userSubmissions.map((userSubmission) => ({
+      title: userSubmission.title,
+      subTitle: `${userSubmission.text.substring(0, 280)}...`,
+      source: 'Hacker News',
+      postDate: new Date(userSubmission.time * 1000) // convert seconds to ms
+    }));
+    setRecentPosts(posts);
   }, []);
 
   return (
