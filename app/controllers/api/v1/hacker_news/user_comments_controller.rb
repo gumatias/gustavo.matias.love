@@ -17,4 +17,11 @@ class Api::V1::HackerNews::UserCommentsController < ApplicationController
 
     render json: comments
   end
+
+  def show
+    response = Faraday.get("https://hacker-news.firebaseio.com/v0/item/#{params[:id]}.json")
+    submission = JSON.parse(response.body)
+
+    render json: submission
+  end
 end

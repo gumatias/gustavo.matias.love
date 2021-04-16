@@ -1,4 +1,14 @@
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+
 export default function Post() {
+  const { id } = useParams();
+
+  useEffect(async () => {
+    const response = await fetch(`/api/v1/hacker_news/user_comments/${id}`);
+    const submission = response.json();
+  }, []);
+
   return (
     <div>
       <header class="masthead" style={{ backgroundImage: "url('img/post-bg.jpg')" }}>

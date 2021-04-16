@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :hacker_news do
-        get "user_comments", to: "user_comments#index"
+        get "/user_comments", to: "user_comments#index"
+        get "/user_comments/:id", to: "user_comments#show"
       end
     end
   end

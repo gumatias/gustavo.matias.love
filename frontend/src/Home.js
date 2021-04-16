@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -10,6 +11,7 @@ export default function Home() {
     // TODO: When user clicks on post info, it takes user to post page
     // TODO: What is the plan for listing other platforms?
     const posts = userSubmissions.map((userSubmission) => ({
+      id: userSubmission.id,
       title: userSubmission.title,
       subTitle: `${userSubmission.text.substring(0, 280)}...`,
       source: 'Hacker News',
@@ -40,14 +42,14 @@ export default function Home() {
             {recentPosts.map((post) => (
               <>
                 <div class="post-preview">
-                  <a href="post.html">
+                  <Link to={`/post/${post.id}`}>
                     <h2 class="post-title">
                       {post.title}
                     </h2>
                     <h3 class="post-subtitle">
                       {post.subTitle}
                     </h3>
-                  </a>
+                  </Link>
                   <p class="post-meta">Posted on{'\n'}
                     <a href="#">{post.source}</a>{'\n'}
                     on {Intl.DateTimeFormat('en-US', {month: 'long', day: 'numeric', year: 'numeric'}).format(post.postDate)}</p>
