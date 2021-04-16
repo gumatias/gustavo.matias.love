@@ -10,9 +10,9 @@ export default function Home() {
     }).then((response) => {
       const userSubmissions = response.map((userSubmission) => ({
         title: userSubmission.title,
-        subTitle: userSubmission.text,
+        subTitle: userSubmission.text.substring(0, 280) + "...",
         source: 'Hacker News',
-        postDate: Date.now()
+        postDate: new Date(userSubmission.time * 1000) // convert seconds to ms
       }));
       setRecentPosts(userSubmissions);
     });
